@@ -1,0 +1,128 @@
+{
+"students": [
+	{
+"firstName": "house",
+"middleName": "user",
+"lastName": "condition",
+"gender": "male",
+"father": [{
+			"fatherFirstName": "housing",
+			"fatherMiddleName": "user",
+			"fatherLastName": "condition",
+			"fatherEmail": "housing@user.com"
+	}],
+"dateOfBirth": [{
+				"dob": "2012-04-23T18:25:43.511Z"
+				}],
+
+"mother": [{
+		"motherFirstName": "homing",
+		"motherMiddleName": "user",
+		"motherLastName": "condition",
+		"motherEmail": "housings@user.com"
+	}],
+
+"contactNumber": [{
+				"primary": "1234561745"
+				}],
+"email": [{
+           "primary": "housing@user.com"
+		}]
+
+   },
+   
+{
+"firstName": "looser",
+"middleName": "user",
+"lastName": "winner",
+"gender": "male",
+"father": [{
+"fatherFirstName": "looserss",
+"fatherMiddleName": "user",
+"fatherLastName": "winner",
+"fatherEmail": "looserssss@winner.com"
+}],
+"dateOfBirth": [{
+"dob": "2012-04-23T18:25:43.511Z"
+}],
+
+"mother": [{
+"motherFirstName": "loosing",
+"motherMiddleName": "user",
+"motherLastName": "winner",
+"motherEmail": "loosingss@winner.com"
+}],
+
+"contactNumber": [{
+				"primary": "1452367890"
+				}],
+"email": [{
+"primary": "looser@winner.best"
+        }]
+
+
+},
+	{
+"firstName": "house",
+"middleName": "user",
+"lastName": "condition",
+"gender": "male",
+"father": [{
+			"fatherFirstName": "housing",
+			"fatherMiddleName": "user",
+			"fatherLastName": "condition",
+			"fatherEmail": "housing@user.com"
+	}],
+"dateOfBirth": [{
+				"dob": "2012-04-23T18:25:43.511Z"
+				}],
+
+"mother": [{
+		"motherFirstName": "homing",
+		"motherMiddleName": "user",
+		"motherLastName": "condition",
+		"motherEmail": "housings@user.com"
+	}],
+
+"contactNumber": [{
+				"primary": "1234561745"
+
+				}],
+"email": [{
+           "primary": "housing@user.com"
+		}]
+
+   },
+   {
+"firstName": "house",
+"middleName": "user",
+"lastName": "condition",
+"gender": "male",
+"father": [{
+			"fatherFirstName": "housing",
+			"fatherMiddleName": "user",
+			"fatherLastName": "condition",
+			"fatherEmail": "housing@user.com"
+	}],
+"dateOfBirth": [{
+				"dob": "2012-04-23T18:25:43.511Z"
+				}],
+
+"mother": [{
+		"motherFirstName": "homing",
+		"motherMiddleName": "user",
+		"motherLastName": "condition",
+		"motherEmail": "housings@user.com"
+	}],
+
+"contactNumber": [{
+				"primary": "1234561745"
+
+				}],
+"email": [{
+           "primary": "housing@user.com"
+		}]
+
+   }
+   ]
+}

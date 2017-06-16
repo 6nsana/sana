@@ -1,0 +1,212 @@
+-var express = require('express');
+-var app = express();
+Add a comment to this line
+-var mongoose = require('mongoose');
+-var router = express.Router();
+-
+-var Login = require('../../../models/login');
+-var Training_com_Register = require('../../../models/training_company');
+-var ContactRegister = require('../../../models/contact');
+-var TempStudent = require('../../../models/tempstudent');
+-var csvStudent = []
+-exports.post = function(req, res) {
+-
+-    
+-Login.findOne({ paperflowId: req.decoded.paperflowId }, function(err, d) {
+-    //console.log(d)
+-     
+-    console.log(req.body.students.length)
+-
+-    for (var i = 0; i < req.body.students.length; i++) {
+-
+-        var studentsObj = {
+-            firstName: req.body.students[i].firstName,
+-            middleName: req.body.students[i].middleName,
+-            lastName: req.body.students[i].lastName,
+-            gender: req.body.students[i].gender,
+-            enrollmentId:req.body.students[i].enrollmentId
+-        }
+-
+-        studentsObj.dateOfBirth = [];
+-
+-        req.body.students[i].dateOfBirth.forEach(function(fa) {
+-            var dateOfBirthObj = {
+-                dob:fa.dob
+-            }
+-            studentsObj.dateOfBirth.push(dateOfBirthObj);
+-        });
+-
+-
+-
+-        studentsObj.mother = [];
+-
+-        req.body.students[i].mother.forEach(function(fa) {
+-            var motherObj = {
+-                motherFirstName: fa.motherFirstName,
+-                motherMiddleName: fa.motherMiddleName,
+-                motherLastName: fa.motherLastName,
+-                motherEmail: fa.motherEmail
+-            }
+-            studentsObj.mother.push(motherObj);
+-        });
+-
+-
+-        studentsObj.contactNumber = [];
+-
+-        req.body.students[i].contactNumber.forEach(function(fa) {
+-            var contactNumberObj = {
+-                		primary: fa.primary
+-
+-                }
+-
+-            studentsObj.contactNumber.push(contactNumberObj);
+-        });
+-
+-   studentsObj.father = [];
+-
+-        req.body.students[i].father.forEach(function(fa) {
+-            var fatherObj = {
+-                fatherFirstName: fa.fatherFirstName,
+-                fatherMiddleName: fa.fatherMiddleName,
+-                fatherLastName: fa.fatherLastName,
+-                fatherEmail: fa.fatherEmail
+-            }
+-            studentsObj.father.push(fatherObj);
+-        });
+-
+-
+-studentsObj.course =[];
+-  
+-  req.body.students[i].course.forEach(function(coursedetails){
+-    var courseobj ={
+-        courseId : coursedetails.courseId,
+-        courseName: coursedetails.courseName,
+-        courseType:coursedetails.courseType,
+-        courseVersion:coursedetails.courseVersion
+-    }
+-    studentsObj.course.push(courseobj)
+-  })
+-
+-
+-
+-   studentsObj.email = [];
+-
+-        req.body.students[i].email.forEach(function(fa) {
+-            var emailObj = {
+-                primary: fa.primary
+-            
+-            }
+-            studentsObj.email.push(emailObj);
+-        });
+-
+-
+- csvStudent.push(studentsObj)
+-
+-
+-studentsObj.organization = [];
+-
+-        
+-            var organizationObj = {
+-                                    organizationPaperflowId: req.decoded.paperflowId,
+-                                    typeOfOrganization:d.typeOfOrganization,
+-                                    nameOfOrganization: d.nameOfOrganization,
+-                                    startDate         :new Date()
+-                                 }
+-            studentsObj.organization.push(organizationObj);
+-            console.log(organizationObj)
+-
+-
+-
+-
+-
+-
+-
+-
+-        console.log(csvStudent)
+-
+-
+-    }
+-
+-
+-function savestudents(records, Model) {
+-       
+-        return new Promise(function(resolve, reject) {
+-            var bulk = Model.collection.initializeOrderedBulkOp();
+-            records.forEach(function(record) {
+-                var query = {paperflowId:req.decoded.paperflowId};
+-                
+-                bulk.insert(record);
+-            });
+-            bulk.execute(function(err, bulkres) {
+-                if (err) return reject(err);
+-                resolve(bulkres);
+-            });
+-        });
+-    }
+-
+-
+- 
+-  
+-    savestudents(csvStudent, TempStudent).then(function(bulkRes){
+-    res.json({success:true,message:'Bulk complete.'});
+-    res.end()
+-      
+-    }, function(err){
+-       res.json({success:false,message:'Bulk Error',data: err});
+-       res.end()
+-        
+-    });
+-})
+-
+-}
+-
+-
+-
+- 
+-
+-
+-
+-
+-
+-//     TempStudent.insertMany(csvStudent,function(err, data) {
+-//         if (!err) {
+-//             res.json({ success: true, message: "ok" })
+-//         } else {
+-//             res.json({ success: false, message: err })
+-//         }
+-//     })
+-// }
+-
+-
+-
+-
+-
+-
+-//        function savestudents(records, Model, match) {
+-//         match = match || '';
+-//         return new Promise(function(resolve, reject) {
+-//             var bulk = Model.collection.initializeOrderedBulkOp();
+-//             records.forEach(function(record) {
+-//                 var query = {paperflowId:req.decoded.paperflowId};
+-//                 query[match] = record[match];
+-//                 bulk.find(query).upsert().updateOne(record);
+-//             });
+-//             bulk.execute(function(err, bulkres) {
+-//                 if (err) return reject(err);
+-//                 resolve(bulkres);
+-//             });
+-//         });
+-//     }
+-
+-
+- 
+-  
+-//     savestudents(csvStudent, TempStudent).then(function(bulkRes){
+-//       res.json({success:true,message:'Bulk complete.'});
+-      
+-//     }, function(err){
+-//         res.json({success:false,message:'Bulk Error:',data: err});
+-        
+-//     });
+-  
+-// }

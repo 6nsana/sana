@@ -1,0 +1,51 @@
+{ 
+	"data":[{
+	"_id" :"58bfcd3769008a209c558035",
+	"firstName" : "houseeee",
+	"middleName" : "user",
+	"lastName" : "condition",
+	"gender" : "male",
+	"dateOfBirth" : [
+		{
+			"dob" : "2012-04-23T18:25:43.511Z"
+		}
+	],
+	"mother" : [
+		{
+			"motherFirstName" : "homing",
+			"motherMiddleName" : "user",
+			"motherLastName" : "condition",
+			"motherEmail" : "housings@user.com"
+		}
+	],
+	"contactNumber" : [
+		{
+			"primary" : "99898"
+		}
+	],
+	"father" : [
+		{
+			"fatherFirstName" : "housing",
+			"fatherMiddleName" : "user",
+			"fatherLastName" : "condition",
+			"fatherEmail" : "housing@user.com"
+		}
+	],
+	"email" : [
+		{
+			"primary" : "houseee111@user.com"
+		}
+	],
+	"organization" : [
+		{
+			"organizationPaperflowId" : "TC91HR0008",
+			"typeOfOrganization" : "001",
+			"nameOfOrganization" : "kvs",
+			"startDate" : "2017-03-08T09:21:59.155Z"
+		}
+	]
+  
+  
+  }]
+	
+}
